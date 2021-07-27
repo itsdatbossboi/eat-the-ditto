@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const powerup = SpriteKind.create()
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     scene.cameraShake(4, 500)
@@ -5,9 +8,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    otherSprite.destroy()
     sprite.startEffect(effects.hearts, 100)
-    music.baDing.play()
+    otherSprite.destroy()
+    music.magicWand.play()
 })
 let projectile: Sprite = null
 let choice = 0
